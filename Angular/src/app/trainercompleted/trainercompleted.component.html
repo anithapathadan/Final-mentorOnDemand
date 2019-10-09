@@ -1,0 +1,24 @@
+<app-trainerheader></app-trainerheader>
+<section id="paymenthistory">
+        <br><h4 class="section-title">Completed Trainings</h4>
+            <div class="container mt-3">
+        
+        
+                <div class="media border p-3" style="border-radius: 1rem; background-color: #e0e0e0;">
+        
+        
+                    <div class="media-body">
+                        <div class="row align-items-center justify-content-center"  *ngFor="let display of trainings">
+        
+                            <span class="col-md-3 pt-3">Trainee : <span><b>{{display.userId}}</b></span> </span>
+                            <span class="col-md-2 pt-3">Course : <span><b>{{display.technology}}</b></span> </span>
+                            <span class="col-md-2 pt-3">Completed On : <span><b>{{display.endDate}}</b></span> </span>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+</section>
+        
+
+
