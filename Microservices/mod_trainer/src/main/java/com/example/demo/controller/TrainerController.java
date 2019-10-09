@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.pojo.TrainerDetails;
+import com.example.demo.pojo.TrainerSkills;
 import com.example.demo.service.TrainerService;
 
 @EnableEurekaClient
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class TrainerController {
 	@Autowired
@@ -26,6 +27,16 @@ public class TrainerController {
 	    trainerService.postTrainer(trainer);
 	    
 	  }
+	
+	@RequestMapping(method = RequestMethod.POST,value = "/trainer/addskill")
+	  public void postTrainerSkill(@RequestBody TrainerSkills trainerskills) {
+	    trainerService.postTrainerSkill(trainerskills);
+	    
+	  }
+	@RequestMapping("/trainer/skills")
+	public List<TrainerSkills> ts(){
+		return trainerService.ts();
+	}
 	
 	@RequestMapping("/trainer/{userName}")
     public TrainerDetails mentorName(@PathVariable String userName){
@@ -48,4 +59,6 @@ public class TrainerController {
 	{
 		trainerService.deleteMentor(id);
 	}
+	
+	
 }
